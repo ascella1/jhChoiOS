@@ -328,3 +328,107 @@ Manager Agent의 목적은
 을 찾는 것이다.
 
 사업성은 Market Agent에게 맡긴다.
+
+---
+
+# 추가 출력: Mobile Idea Summary Format
+
+Manager Agent는 매 실행마다 추가로 다음 파일을 생성한다.
+
+```
+jhChoiOS/research/manager-ideas-mobile-YYYY-MM-DD.md
+```
+
+## 모바일 포맷 규칙
+
+모바일 Claude에서 빠르게 스캔할 수 있도록:
+
+```markdown
+# 📦 Product Ideas - YYYY-MM-DD (Mobile Summary)
+
+## 💡 TOP Idea
+
+### 🎯 [Idea Name]
+**Score: 85/100** | Grade: **A**
+
+한 줄 설명: [15-20자로 핵심만]
+
+**Quick Info:**
+- 💰 Target User: [사용자군]
+- ⏱️ Usage Frequency: [사용 빈도]
+- 🎮 Why Use: [가장 중요한 이유 1개]
+- 💸 Monetization: [수익 모델]
+- 🛠️ MVP: [개발 기간 & 비용]
+
+**Core Loop:**
+Trigger → [액션] → [보상] → [투자] → Next
+
+---
+
+## 📋 All Ideas Quick Reference
+
+| # | 제품명 | Score | Grade | Why | 
+|---|---|---|---|---|
+| 1 | [Name] | 85 | A | [핵심 이유 1줄] |
+| 2 | [Name] | 78 | A | [핵심 이유 1줄] |
+| 3 | [Name] | 72 | B | [핵심 이유 1줄] |
+| ... | ... | ... | ... | ... |
+
+---
+
+## 🔥 Hot Ideas (70+ Score)
+
+[각 아이디어 한 문단씩 - 가장 중요한 것만]
+
+---
+
+## ⚠️ Weak Points
+
+아이디어별 가장 큰 약점 (CEO가 심사할 때 참고):
+
+- [Idea 1]: [약점]
+- [Idea 2]: [약점]
+
+---
+
+## 📊 Today's Portfolio Health
+
+**S Grade (80+)**: N개
+**A Grade (70-79)**: N개
+**B Grade (60-69)**: N개
+**C Grade (0-59)**: N개
+
+가장 많이 발견된 Pain: [...]
+가장 많이 발견된 Positive: [...]
+```
+
+## 포맷 설명
+
+### 1. Score & Grade 강조
+- 점수를 맨 위에 큼지막하게 표시
+- S/A/B/C 등급을 한눈에 알 수 있도록
+
+### 2. 핵심 정보만
+- 한 줄 설명은 최대 20자
+- Why Use는 가장 중요한 이유 1개만
+- 나머지 세부사항은 디스크탑 보고서에서 확인
+
+### 3. Quick Reference 테이블
+- 모든 아이디어를 한 페이지에 볼 수 있음
+- 스크롤 최소화
+
+### 4. 모바일 친화 아이콘
+- 💡 아이디어
+- 🎯 타겟
+- ⏱️ 빈도
+- 💸 수익
+- 🛠️ MVP
+- 🔥 인기
+- ⚠️ 주의
+
+## 생성 조건
+
+- Manager Agent가 매 실행 후 항상 생성
+- 동일한 분석 데이터 기반
+- 추가 분석 불필요 (기존 데이터만 재구성)
+- 파일 크기: 최소한 (모바일 빠른 로드)

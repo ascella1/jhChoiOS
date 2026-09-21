@@ -222,5 +222,135 @@ S / A / B / C
 
 시장 데이터를 기반으로 평가한다.
 
+---
+
+# 추가 출력: Mobile Market Summary Format
+
+Market Agent는 매 실행마다 추가로 다음 파일을 생성한다.
+
+```
+jhChoiOS/market/market-analysis-mobile-YYYY-MM-DD.md
+```
+
+## 모바일 시장 분석 포맷
+
+모바일에서 빠르게 사업성을 판단할 수 있도록:
+
+```markdown
+# 💼 Market Analysis - YYYY-MM-DD (Mobile)
+
+## 🎯 Executive Summary
+
+| Idea | Market Score | Grade | Viability | Risk |
+|---|---|---|---|---|
+| [Idea 1] | 82/100 | A | ⭐⭐⭐⭐⭐ | 🟡 Medium |
+| [Idea 2] | 75/100 | A | ⭐⭐⭐⭐ | 🔴 High |
+| [Idea 3] | 68/100 | B | ⭐⭐⭐ | 🟡 Medium |
 
 ---
+
+## 💡 Idea 001: [Product Name]
+**Market Score: 82/100 | Grade: A**
+
+### 📊 Market Signals
+
+**Demand:** ✅ Confirmed
+- Evidence: [1줄 근거]
+
+**Customer:** [타겟] 
+- Willingness to Pay: [예상 가격]
+
+**Market Size:** 
+- 추정: [숫자 with 범위] 
+- Confidence: [High/Medium/Low]
+
+### 💰 Financial Snapshot
+
+| 항목 | 평가 |
+|---|---|
+| **수익 모델** | [Subscription / One-time / Usage-based] |
+| **가격대** | $[X] - $[Y] |
+| **초기 10명 확보** | [경로] |
+| **MVP 비용** | [₩X - ₩Y] |
+| **수익화 시간** | [예상 개월 수] |
+
+### ⚠️ Risk Assessment
+
+🔴 **Critical Risk**: [위험 요소]
+🟡 **Medium Risk**: [위험 요소]
+🟢 **Low Risk**: [위험 요소]
+
+### 🎯 Go/No-Go Decision Factors
+
+✅ **Pro:**
+- [강점 1]
+- [강점 2]
+
+❌ **Con:**
+- [약점 1]
+- [약점 2]
+
+---
+
+## 📈 Top Opportunities
+
+### 🥇 Highest Viability
+**[Idea Name]** (Score: XX/100)
+- Key: [한 문장 핵심]
+- TAM: [시장규모]
+- GTM: [시장 진입 전략 1줄]
+
+---
+
+## ⚡ Quick Verdicts
+
+**Immediate Action:** 
+- [아이디어]: [액션 필수 이유]
+
+**Further Research Needed:**
+- [아이디어]: [조사 항목]
+
+**Not Recommended:**
+- [아이디어]: [이유]
+
+---
+
+## 📊 Market Heat Map
+
+**Hot (Score 75+, Grade A):** N개
+**Warm (Score 60-74, Grade B):** N개
+**Cold (Score <60, Grade C):** N개
+
+가장 큰 시장 기회: [...]
+가장 높은 진입 장벽: [...]
+```
+
+## 포맷 상세 설명
+
+### 1. Executive Summary 테이블
+- 모든 아이디어의 사업성을 한 눈에
+- Score, Grade, Viability Stars, Risk 한 줄에
+
+### 2. 각 아이디어별 구성
+- Market Signals: 수요 확인 (1줄 근거만)
+- Financial Snapshot: 가격, 비용, 수익화 기간
+- Risk Assessment: 신호등 색상으로 표시
+- Go/No-Go: 투자 결정을 위한 Pro/Con
+
+### 3. 의사결정 최적화
+- Top Opportunities: 최상위 아이디어만 강조
+- Quick Verdicts: CEO가 즉시 판단 가능
+- Heat Map: 포트폴리오 구성 한눈에
+
+### 4. 모바일 최적화 규칙
+- 각 섹션: 최대 5줄 (스크롤 최소화)
+- 숫자는 필수 (추측 아님)
+- 신호등 컬러: 위험도 한눈에
+- 별 5개: Viability 시각화
+
+## 생성 조건
+
+- Market Agent가 매 실행 후 항상 생성
+- 동일한 시장 조사 데이터 기반
+- CEO의 의사결정용 핵심 정보만 추출
+- 파일 크기: 휴대폰 스크롤 최소 (A4 2-3페이지)

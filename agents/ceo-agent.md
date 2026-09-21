@@ -770,3 +770,136 @@ negative-agent
 - 일반적인 Todo
 - 일반적인 일정관리
 ```
+
+---
+
+# 22. Mobile Report Format (모바일 친화적 리포트)
+
+CEO는 최종 의사결정 후 다음 형식으로 모바일 Claude를 통해 User에게 보고한다.
+
+## 22.1 Mobile Report 생성 규칙
+
+User가 휴대폰에서 빠르게 확인할 수 있도록:
+
+```markdown
+# 🚀 jhChoiOS Daily Report - YYYY-MM-DD
+
+## 📊 Today's Idea Ranking
+
+### 🥇 1위. [Idea Name]
+**Score: 8.5/10** | Market Potential: High
+**1줄 설명**: [가장 중요한 한 문장으로 아이디어 요약]
+- 🎯 Pain Point: [문제점]
+- ✨ Solution: [해결책]
+- 💰 Market Size: [예상 시장 규모]
+- ⏱️ MVP Timeline: [개발 기간]
+
+### 🥈 2위. [Idea Name]
+**Score: 7.8/10** | Market Potential: Medium-High
+**1줄 설명**: [한 문장 요약]
+- 🎯 Pain Point: [문제점]
+- ✨ Solution: [해결책]
+- 💰 Market Size: [예상 시장 규모]
+- ⏱️ MVP Timeline: [개발 기간]
+
+### 🥉 3위. [Idea Name]
+**Score: 7.2/10** | Market Potential: Medium
+**1줄 설명**: [한 문장 요약]
+- 🎯 Pain Point: [문제점]
+- ✨ Solution: [해결책]
+- 💰 Market Size: [예상 시장 규모]
+- ⏱️ MVP Timeline: [개발 기간]
+
+### 4️⃣ 4위. [Idea Name]
+**Score: 6.8/10** | Market Potential: Medium
+**1줄 설명**: [한 문장 요약]
+
+### 5️⃣ 5위. [Idea Name]
+**Score: 6.3/10** | Market Potential: Medium-Low
+**1줄 설명**: [한 문장 요약]
+
+---
+
+## 🎯 Today's Key Insights
+
+- **주요 발견사항 1**: [한 줄 요약]
+- **주요 발견사항 2**: [한 줄 요약]
+- **주요 발견사항 3**: [한 줄 요약]
+
+---
+
+## ⚠️ Critical Alerts (있으면 표시)
+
+- [Alert 1]: [설명]
+- [Alert 2]: [설명]
+
+---
+
+## 📈 Performance Status
+
+**Consecutive Satisfactory Runs**: N
+**Strike Count**: 0 / 2
+**Status**: 🟢 Healthy
+
+---
+
+## 🔗 Full Report
+
+더 자세한 내용은 Desktop Claude에서 확인하세요.
+File: jhChoiOS/daily-report-YYYY-MM-DD.md
+```
+
+## 22.2 각 아이디어별 필수 정보
+
+TOP 5 아이디어 각각마다:
+
+```
+✓ 아이디어 이름
+✓ 종합 점수 (0-10)
+✓ 시장 잠재력 (High / Medium / Low)
+✓ 한 줄 설명 (모바일 화면에 맞는 15-20자)
+✓ 핵심 Pain Point
+✓ 솔루션 요약
+✓ 예상 시장 규모
+✓ MVP 개발 예상 기간
+```
+
+## 22.3 출력 파일
+
+```
+jhChoiOS/ceo/mobile-report-YYYY-MM-DD.md
+```
+
+이 파일은 자동으로:
+- `daily-report-YYYY-MM-DD.md`와 동일한 시간에 생성
+- PushNotification으로 User의 휴대폰 Claude에 전송
+- 텍스트 기반으로 모바일에 최적화됨
+- 각 아이디어를 빠르게 스캔할 수 있도록 구조화됨
+
+## 22.4 점수 산정 기준
+
+각 아이디어는 다음 8가지 기준으로 0-10점 평가:
+
+```
+1. Problem Validation (문제 실제성)
+2. User Frequency (반복 사용성)
+3. Retention Potential (지속 사용성)
+4. Product Uniqueness (차별성)
+5. First Impression Value (초기 체험)
+6. Monetization Clarity (수익화 가능성)
+7. Market Viability (시장성)
+8. MVP Feasibility (300만원 이하 검증 가능성)
+
+최종 점수 = (합계 / 8 점)
+```
+
+## 22.5 Priority Ranking 로직
+
+아이디어 순위 결정:
+
+```
+1순위: 8점 이상 + Market Potential High
+2순위: 7.5점 이상 + Market Potential Medium-High
+3순위: 7점 이상 + 반복 신호 감지
+4-5순위: 6점 이상 + 추가 검증 필요
+```
