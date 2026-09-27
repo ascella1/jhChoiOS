@@ -1,0 +1,38 @@
+name: Weekly Ideas Ranking Report
+
+# 매주 일요일 아침 8시 47분 (UTC+9 기준)
+on:
+  schedule:
+    # 일요일 23:47 UTC = 일요일 08:47 KST (UTC+9)
+    - cron: '47 23 * * 0'
+  workflow_dispatch:
+
+jobs:
+  weekly-ranking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Generate weekly ideas ranking
+        run: python3 scripts/generate_weekly_ranking.py
+
+      - name: Commit and push weekly ranking
+        run: |
+          git config user.name "Claude Daily Pipeline"
+          git config user.email "claude@anthropic.com"
+
+          if [ -n "$(git status --porcelain | grep weekly-ideas-ranking)" ]; then
+            git add weekly-ideas-ranking-*.md
+            git commit -m "Weekly ideas ranking — $(date +%Y-%m-%d)"
+            git push origin $(git rev-parse --abbrev-ref HEAD)
+          fi
